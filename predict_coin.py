@@ -45,7 +45,7 @@ if circles is not None:
 
     for (x, y, r) in circles:
 
-        padding = 10
+        padding = 40
 
         y1 = max(0, y - r - padding)
         y2 = min(image.shape[0], y + r + padding)
@@ -53,6 +53,13 @@ if circles is not None:
         x2 = min(image.shape[1], x + r + padding)
         
         coin = image[y1 : y2, x1 : x2]
+
+        h, w = coin.shape[:2]
+
+        mask = np.zeros((h, w), dtype = "uint8")
+        cv2.circle(mask, (w//2, h//2), min(h, w)//2, 255, -1)
+
+        coin = cv2.bitwise_and(coin, coin, mask = mask)
 
         if coin.size == 0:
             continue

@@ -52,6 +52,10 @@ model.add(MaxPooling2D(2, 2))
 model.add(Conv2D(128, (3, 3), activation = 'relu'))
 model.add(MaxPooling2D(2, 2))
 
+# Convolution layer 4
+model.add(Conv2D(128, (3, 3), activation = 'relu'))
+model.add(MaxPooling2D(2, 2))
+
 # Flatten
 model.add(Flatten())
 
@@ -72,7 +76,7 @@ model.summary()
 
 history = model.fit(
     train_data,
-    epochs = 10,
+    epochs = 30,
     validation_data = test_data
 )
 
