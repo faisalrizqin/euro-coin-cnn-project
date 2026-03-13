@@ -5,7 +5,7 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout
 
-train_path = "dataset/coins-dataset/classified/train"
+train_path = "dataset_balanced/train"
 test_path = "dataset/coins-dataset/classified/test"
 
 img_size = 128
@@ -76,7 +76,7 @@ model.summary()
 
 history = model.fit(
     train_data,
-    epochs = 30,
+    epochs = 10,
     validation_data = test_data
 )
 

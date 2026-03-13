@@ -19,7 +19,7 @@ coin_values = {
     '2e': 2.00
 }
 
-image = cv2.imread("test_images/coins.jpg")
+image = cv2.imread("test_images/coins7.jpg")
 output = image.copy()
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
